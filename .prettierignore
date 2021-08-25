@@ -1,0 +1,9 @@
+dist/
+build/
+.next/
+.out/
+out/
+node_modules/
+.cache
+.tmp
+.yml

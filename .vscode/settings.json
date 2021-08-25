@@ -1,0 +1,72 @@
+{
+	"workbench.iconTheme": "vscode-icons",
+	"editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+	"editor.fontLigatures": true,
+	"editor.renderWhitespace": "all",
+	"editor.cursorStyle": "block",
+	"debug.console.fontSize": 16,
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"editor.formatOnSave": true,
+	"editor.autoIndent": "full",
+	"eslint.format.enable": true,
+	"prettier.enable": true,
+    "editor.tabSize": 4,
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "javascript.preferences.importModuleSpecifier": "relative",
+	"editor.insertSpaces": false,
+    "git.ignoreLimitWarning": true,
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/.hg/store/**": true
+    },
+    "eslint.validate": [        
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+	"[typescript]": {
+		"editor.formatOnSave": true
+	},
+	"explorer.compactFolders": false,
+	"cSpell.userWords": [
+		"Roboto",
+		"Segoe",
+		"ado",
+		"avan",
+		"avançado",
+		"grayscale",
+		"lessandrodev",
+		"xbold",
+		"xlarge",
+		"xsmall",
+		"xxlarge",
+		"xxsmall"
+	],
+	"editor.quickSuggestions": {
+		"other": true,
+		"comments": true,
+		"strings": true
+	},
+	
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	
+	"editor.acceptSuggestionOnCommitCharacter": true,
+
+	"editor.acceptSuggestionOnEnter": "on",
+
+	"editor.quickSuggestionsDelay": 100,
+
+	"editor.suggestOnTriggerCharacters": true,
+
+	"editor.tabCompletion": "on",
+
+	"editor.suggest.localityBonus": true,
+
+	"editor.suggestSelection": "recentlyUsed",
+
+	"editor.wordBasedSuggestions": true,
+
+	"editor.parameterHints.enabled": true
+}

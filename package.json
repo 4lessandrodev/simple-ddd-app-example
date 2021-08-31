@@ -34,13 +34,12 @@
 		"lint-staged": "^11.1.2",
 		"prettier": "^2.3.2",
 		"ts-node": "^10.2.1",
-		"typescript": "^4.3.5"
+		"typescript": "^4.3.5",
+		"@types/module-alias": "^2.0.1"
 	},
 	"dependencies": {
-		"@types/module-alias": "^2.0.1",
 		"fastify": "^3.20.2",
 		"module-alias": "^2.2.2",
-		"reflect-metadata": "^0.1.13",
 		"types-ddd": "^2.3.6"
 	},
 	"_moduleAliases": {

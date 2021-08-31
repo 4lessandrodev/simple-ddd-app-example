@@ -1,4 +1,4 @@
-import { Logger } from 'types-ddd/dist';
+import { Logger } from 'types-ddd';
 import UserService from '@modules/user/user.service';
 import Database from '@modules/user/infra/database/memory.db';
 

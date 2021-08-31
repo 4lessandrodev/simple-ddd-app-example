@@ -26,5 +26,4 @@ export class UserMapper implements IMapper<UserAggregate, UserModel>{
 			updatedAt: target.updatedAt,
 		}; 
 	};
-
 }

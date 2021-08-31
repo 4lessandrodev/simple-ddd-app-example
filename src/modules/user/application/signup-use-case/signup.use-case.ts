@@ -1,4 +1,4 @@
-import { DomainId, EmailValueObject, IUseCase, PasswordValueObject, Result, UserNameValueObject } from "types-ddd";
+import { DomainId, EmailValueObject, IUseCase, PasswordValueObject, Result, UserNameValueObject, Logger } from "types-ddd";
 import SignUpDto from './signup.dto';
 import IUserRepository from '../../domain/repo/user-repo.interface';
 import UserAggregate from "../../domain/core/user.aggregate";
@@ -14,7 +14,9 @@ export class SignUpUseCase implements IUseCase<SignUpDto, Result<void>> {
 			const userAlreadyExists = await this.userRepo.exists({ email });
 			
 			if (userAlreadyExists) {
-				return Result.fail('User Already Exists for email', 'CONFLICT');
+				const message = 'User Already Exists for email';
+				Logger.error(message);
+				return Result.fail(message, 'CONFLICT');
 			}
 
 			const passwordOrError = PasswordValueObject.create(password);
@@ -27,7 +29,9 @@ export class SignUpUseCase implements IUseCase<SignUpDto, Result<void>> {
 
 			const isAllSuccess = observer.isAllResultsSuccess();
 			if (!isAllSuccess) {
-				return Result.fail(observer.getResult().errorValue());
+				const message = observer.getResult().errorValue();
+				Logger.error(message);
+				return Result.fail(message);
 			}
 
 			const userOrError = UserAggregate.create(
@@ -40,7 +44,9 @@ export class SignUpUseCase implements IUseCase<SignUpDto, Result<void>> {
 			);
 
 			if (userOrError.isFailure) {
-				return Result.fail(userOrError.errorValue());
+				const message = userOrError.errorValue();
+				Logger.error(message);
+				return Result.fail(message);
 			}
 
 			const user = userOrError.getResult();
@@ -50,7 +56,8 @@ export class SignUpUseCase implements IUseCase<SignUpDto, Result<void>> {
 			await this.userRepo.save(user);
 
 			return Result.success();
-		} catch (error) {
+		} catch (error: any) {
+			Logger.error(error.message);
 			return Result.fail('Internal Server Error', 'INTERNAL_SERVER_ERROR');
 		}
 	};

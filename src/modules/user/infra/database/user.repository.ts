@@ -1,4 +1,4 @@
-import  { Filter, IMapper } from 'types-ddd';
+import  { Filter, IMapper, Logger } from 'types-ddd';
 import IUserRepository from '../../domain/repo/user-repo.interface';
 import UserAggregate from '../..//domain/core/user.aggregate';
 import  UserModel from '../../infra/models/user.model';
@@ -13,11 +13,15 @@ export class UserRepository implements IUserRepository<UserAggregate, UserModel>
 	async save (target: UserAggregate): Promise<void>{
 		const model = this.mapper.toPersistence(target);
 		this.database.users.push(model);
-		console.table(model);
+		Logger.info("New user added");
 	};
 
 	async findOneUser (filter: Filter<Partial<UserModel>>): Promise<UserAggregate | null>{
-		const userFound = this.database.users.find((user) => user.id === filter?.id || user.name === filter?.name);
+		const userFound = this.database.users.find(
+			(user) => user.id === filter?.id || 
+			user.email.toLowerCase() === filter?.email?.toLowerCase() || 
+			user.name.toLowerCase() === filter?.name?.toLowerCase()
+		);
 		if (!userFound) {
 			return null;
 		}
@@ -25,7 +29,12 @@ export class UserRepository implements IUserRepository<UserAggregate, UserModel>
 	};
 
 	async exists (filter: Filter<Partial<UserModel>>):Promise<boolean>{
-		const userFound = this.database.users.find((user) => user.id === filter?.id || user.name === filter?.name);
-		return !!userFound;
+		const userFound = await this.findOneUser(filter);
+		const exists =  !!userFound;
+		return exists;
 	};
+
+	async getUsers (): Promise<UserModel[]> {
+		return this.database.users;
+	}
 }

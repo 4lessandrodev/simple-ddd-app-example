@@ -6,10 +6,11 @@
 	"license": "MIT",
 	"author": "4lessandrodev",
 	"scripts": {
-		"start": "node ./dist/server/app",
+		"start": "node ./dist/main.js",
+		"build": "tsc",
 		"test": "jest --runInBand --passWithNoTest",
 		"test:ci": "jest --runInBand --passWithNoTests",
-		"dev": "ts-node src/main",
+		"dev": "ts-node src/main.ts",
 		"prepare": "husky install",
 		"postinstall": "husky install",
 		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
@@ -34,6 +35,14 @@
 		"typescript": "^4.3.5"
 	},
 	"dependencies": {
-		"types-ddd": "^2.2.3"
+		"fastify": "^3.20.2",
+		"module-alias": "^2.2.2",
+		"reflect-metadata": "^0.1.13",
+		"types-ddd": "^2.3.6"
+	},
+	"_moduleAliases": {
+		"@modules/*": "dist/modules/*",
+		"@config/*": "dist/config/*",
+		"@": "dist"
 	}
 }

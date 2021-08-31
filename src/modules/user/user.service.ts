@@ -1,14 +1,14 @@
 import { IMapper } from 'types-ddd/dist';
-import UserAggregate from './user/domain/core/user.aggregate';
-import Database from './user/infra/database/memory.db';
-import UserModel from './user/infra/models/user.model';
-import IUserRepository from './user/domain/repo/user-repo.interface';
-import { UserMapper } from './user/infra/mappers/user.mapper';
-import { UserRepository } from './user/infra/database/user.repository';
-import { SignUpUseCase } from './user/application/signup-use-case/signup.use-case';
-import { IDatabase } from './user/infra/database/memory.db';
+import UserAggregate from './domain/aggregates/user.aggregate';
+import Database from './infra/database/memory.db';
+import UserModel from './infra/models/user.model';
+import IUserRepository from './domain/repo/user-repo.interface';
+import { UserMapper } from './infra/mappers/user.mapper';
+import { UserRepository } from './infra/database/user.repository';
+import { SignUpUseCase } from './application/signup-use-case/signup.use-case';
+import { IDatabase } from './infra/database/memory.db';
 import { Result } from 'types-ddd';
-import SignUpDto from './user/application/signup-use-case/signup.dto';
+import SignUpDto from './application/signup-use-case/signup.dto';
 
 export class UserService {
 	private readonly mapper: IMapper<UserAggregate, UserModel>;

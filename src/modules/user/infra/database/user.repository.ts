@@ -1,6 +1,6 @@
 import  { Filter, IMapper, Logger } from 'types-ddd';
 import IUserRepository from '../../domain/repo/user-repo.interface';
-import UserAggregate from '../..//domain/core/user.aggregate';
+import UserAggregate from '../../domain/aggregates/user.aggregate';
 import  UserModel from '../../infra/models/user.model';
 import  IDatabase from './memory.db';
 

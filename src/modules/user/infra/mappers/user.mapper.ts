@@ -1,5 +1,5 @@
 import { DomainId, EmailValueObject, IMapper, PasswordValueObject, UserNameValueObject } from "types-ddd";
-import UserAggregate from '../../domain/core/user.aggregate';
+import UserAggregate from '../../domain/aggregates/user.aggregate';
 import UserModel from '../../infra/models/user.model';
 
 export class UserMapper implements IMapper<UserAggregate, UserModel>{

@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest, RouteOptions } from "fastify";
 import SignUpDto from "../application/signup-use-case/signup.dto";
-import UserModule from '../../user.module';
+import UserModule from '../user.module';
 const userModule = new UserModule();
 
 export const signup: RouteOptions = {

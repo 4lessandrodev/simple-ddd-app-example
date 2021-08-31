@@ -1,7 +1,7 @@
 import { DomainId, EmailValueObject, IUseCase, PasswordValueObject, Result, UserNameValueObject, Logger } from "types-ddd";
 import SignUpDto from './signup.dto';
 import IUserRepository from '../../domain/repo/user-repo.interface';
-import UserAggregate from "../../domain/core/user.aggregate";
+import UserAggregate from "../../domain/aggregates/user.aggregate";
 import UserModel from '../../infra/models/user.model';
 import { ChangesObserver } from 'types-ddd';
 

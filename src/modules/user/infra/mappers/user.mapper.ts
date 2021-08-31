@@ -1,6 +1,6 @@
-import { DomainId, EmailValueObject, IMapper, PasswordValueObject, UserNameValueObject } from "types-ddd";
-import UserAggregate from '../../domain/aggregates/user.aggregate';
-import UserModel from '../../infra/models/user.model';
+import { DomainId, EmailValueObject, IMapper, PasswordValueObject, UserNameValueObject } from 'types-ddd';
+import UserAggregate from '@modules/user/domain/aggregates/user.aggregate';
+import UserModel from '@modules/user/infra/models/user.model';
 
 export class UserMapper implements IMapper<UserAggregate, UserModel>{
 	toDomain (target: UserModel):UserAggregate{
@@ -27,3 +27,5 @@ export class UserMapper implements IMapper<UserAggregate, UserModel>{
 		}; 
 	};
 }
+
+export default UserMapper;

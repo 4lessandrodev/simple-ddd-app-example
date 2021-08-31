@@ -1,14 +1,13 @@
-import { IMapper } from 'types-ddd/dist';
-import UserAggregate from './domain/aggregates/user.aggregate';
-import Database from './infra/database/memory.db';
-import UserModel from './infra/models/user.model';
-import IUserRepository from './domain/repo/user-repo.interface';
-import { UserMapper } from './infra/mappers/user.mapper';
-import { UserRepository } from './infra/database/user.repository';
-import { SignUpUseCase } from './application/signup-use-case/signup.use-case';
-import { IDatabase } from './infra/database/memory.db';
-import { Result } from 'types-ddd';
-import SignUpDto from './application/signup-use-case/signup.dto';
+import { Result, IMapper } from 'types-ddd';
+import UserAggregate from '@modules/user/domain/aggregates/user.aggregate';
+import Database from '@modules/user/infra/database/memory.db';
+import UserModel from '@modules/user/infra/models/user.model';
+import IUserRepository from '@modules/user/domain/repo/user-repo.interface';
+import UserMapper from '@modules/user/infra/mappers/user.mapper';
+import UserRepository from '@modules/user/infra/database/user.repository';
+import SignUpUseCase from '@modules/user/application/signup-use-case/signup.use-case';
+import { IDatabase } from '@modules/user/infra/database/memory.db';
+import SignUpDto from '@modules/user/application/signup-use-case/signup.dto';
 
 export class UserService {
 	private readonly mapper: IMapper<UserAggregate, UserModel>;
@@ -32,3 +31,5 @@ export class UserService {
 		return await this.repo.getUsers();
 	}
 }
+
+export default UserService;

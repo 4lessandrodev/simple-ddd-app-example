@@ -6,6 +6,8 @@
 	"license": "MIT",
 	"author": "4lessandrodev",
 	"scripts": {
+		"predev":"tsc",
+		"prestart":"tsc",
 		"start": "node ./dist/main.js",
 		"build": "tsc",
 		"test": "jest --runInBand --passWithNoTest",
@@ -35,14 +37,15 @@
 		"typescript": "^4.3.5"
 	},
 	"dependencies": {
+		"@types/module-alias": "^2.0.1",
 		"fastify": "^3.20.2",
 		"module-alias": "^2.2.2",
 		"reflect-metadata": "^0.1.13",
 		"types-ddd": "^2.3.6"
 	},
 	"_moduleAliases": {
-		"@modules/*": "dist/modules/*",
-		"@config/*": "dist/config/*",
-		"@": "dist"
+		"@modules": "./dist/modules",
+		"@config": "./dist/config",
+		"@": "./dist"
 	}
 }

@@ -1,9 +1,15 @@
-import { DomainId, EmailValueObject, IUseCase, PasswordValueObject, Result, UserNameValueObject, Logger } from "types-ddd";
 import SignUpDto from './signup.dto';
-import IUserRepository from '../../domain/repo/user-repo.interface';
-import UserAggregate from "../../domain/aggregates/user.aggregate";
-import UserModel from '../../infra/models/user.model';
-import { ChangesObserver } from 'types-ddd';
+import IUserRepository from '@modules/user/domain/repo/user-repo.interface';
+import UserAggregate from '@modules/user/domain/aggregates/user.aggregate';
+import UserModel from '@modules/user/infra/models/user.model';
+import { DomainId,
+	EmailValueObject, 
+	IUseCase, 
+	PasswordValueObject, 
+	Result, Logger,
+	UserNameValueObject, 
+	ChangesObserver 
+} from 'types-ddd';
 
 export class SignUpUseCase implements IUseCase<SignUpDto, Result<void>> {
 	constructor (
@@ -62,3 +68,5 @@ export class SignUpUseCase implements IUseCase<SignUpDto, Result<void>> {
 		}
 	};
 }
+
+export default SignUpUseCase;

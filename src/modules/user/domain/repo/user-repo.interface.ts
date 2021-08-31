@@ -1,4 +1,4 @@
-import { Filter } from "types-ddd";
+import { Filter } from 'types-ddd';
 
 export interface IUserRepository<Aggregate, Model>{
 	save: (target: Aggregate)=> Promise<void>

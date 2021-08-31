@@ -2,7 +2,7 @@ import fastify from 'fastify';
 import 'module-alias/register';
 
 
-import { signup, getUsers } from './modules/user/infra/user.routes';
+import { signup, getUsers } from '@modules/user/infra/user.routes';
 
 const server = fastify();
 

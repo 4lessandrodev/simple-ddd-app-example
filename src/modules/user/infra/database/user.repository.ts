@@ -1,8 +1,8 @@
 import  { Filter, IMapper, Logger } from 'types-ddd';
-import IUserRepository from '../../domain/repo/user-repo.interface';
-import UserAggregate from '../../domain/aggregates/user.aggregate';
-import  UserModel from '../../infra/models/user.model';
-import  IDatabase from './memory.db';
+import IUserRepository from '@modules/user/domain/repo/user-repo.interface';
+import UserAggregate from '@modules/user/domain/aggregates/user.aggregate';
+import  UserModel from '@modules/user/infra/models/user.model';
+import  IDatabase from '@modules/user/infra/database/memory.db';
 
 export class UserRepository implements IUserRepository<UserAggregate, UserModel>{
 	constructor (
@@ -13,7 +13,7 @@ export class UserRepository implements IUserRepository<UserAggregate, UserModel>
 	async save (target: UserAggregate): Promise<void>{
 		const model = this.mapper.toPersistence(target);
 		this.database.users.push(model);
-		Logger.info("New user added");
+		Logger.info('New user added');
 	};
 
 	async findOneUser (filter: Filter<Partial<UserModel>>): Promise<UserAggregate | null>{
@@ -38,3 +38,5 @@ export class UserRepository implements IUserRepository<UserAggregate, UserModel>
 		return this.database.users;
 	}
 }
+
+export default UserRepository;

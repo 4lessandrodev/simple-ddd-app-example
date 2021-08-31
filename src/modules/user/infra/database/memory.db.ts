@@ -1,4 +1,4 @@
-import { UserModel } from '../models/user.model';
+import { UserModel } from '@modules/user/infra/models/user.model';
 
 export interface IDatabase {
 	users: UserModel[]

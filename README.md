@@ -24,7 +24,7 @@ few free to use any frameworks like NestJS or any other.
 Database is running in memory.
 
 - Clone this repo
-- `$ git clone [link]`
+- `$ git clone https://github.com/4lessandrodev/simple-ddd-app-example.git`
 - Install dependencies
 - `$ yarn install`
 - Run application

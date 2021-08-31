@@ -7,8 +7,8 @@ export class UserModule {
 
 	get service (): UserService {
 		if(!UserModule.userService) {
-			Logger.info('[Started]: UserModule');
 			UserModule.userService = new UserService(new Database());
+			Logger.info('[Started]: UserModule');
 		}
 		return UserModule.userService;
 	}

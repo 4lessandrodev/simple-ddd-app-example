@@ -5,7 +5,7 @@ import {
 	PasswordValueObject,
 	Result,
 	UserNameValueObject
-} from 'types-ddd/dist';
+} from 'types-ddd';
 
 export interface UserProps extends BaseDomainEntity {
 	email: EmailValueObject;

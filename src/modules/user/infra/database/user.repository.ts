@@ -13,7 +13,7 @@ export class UserRepository implements IUserRepository<UserAggregate, UserModel>
 	async save (target: UserAggregate): Promise<void>{
 		const model = this.mapper.toPersistence(target);
 		this.database.users.push(model);
-		Logger.info('New user added');
+		Logger.info('[User]: New user added');
 	};
 
 	async findOneUser (filter: Filter<Partial<UserModel>>): Promise<UserAggregate | null>{

@@ -5,7 +5,7 @@ const { service } = new UserModule();
 
 export const signup: RouteOptions = {
 	method: 'POST',
-	url: '/',
+	url: '/users',
 	handler: async (req: FastifyRequest, res: FastifyReply) => {
 		const result = await service.signup(req.body as SignUpDto);
 		res.send(result);
@@ -14,7 +14,7 @@ export const signup: RouteOptions = {
 
 export const getUsers: RouteOptions = {
 	method: 'GET',
-	url: '/',
+	url: '/users',
 	handler: async (_req: FastifyRequest, res: FastifyReply) => {
 		const result = await service.getUsers();
 		res.send(result);

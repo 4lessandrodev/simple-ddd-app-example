@@ -63,8 +63,9 @@ export class SignUpUseCase implements IUseCase<SignUpDto, Result<void>> {
 
 			return Result.success();
 		} catch (error: any) {
-			Logger.error(error.message);
-			return Result.fail('Internal Server Error', 'INTERNAL_SERVER_ERROR');
+			const message = '[SignUpUseCase]: Internal Server Error';
+			Logger.error(message);
+			return Result.fail(message, 'INTERNAL_SERVER_ERROR');
 		}
 	};
 }

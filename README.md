@@ -14,7 +14,7 @@ few free to use any frameworks like NestJS or any other.
 - IUseCase: OK
 - AggregateRoot: OK
 - IMapper: OK
-- ValueObject
+- ValueObject: OK
 - Entity
 
 ---
@@ -35,7 +35,7 @@ Database is running in memory.
 
 ---
 
-Post `localhost:3000`
+Post `localhost:3000/users`
 > Create an user
 
 ```json
@@ -50,7 +50,7 @@ Post `localhost:3000`
 
 ---
 
-Get `localhost:3000`
+Get `localhost:3000/users`
 > Get registered users
 
 ```json
@@ -62,6 +62,39 @@ Get `localhost:3000`
         "password": "$2b$10$9rZh7nnnW.WcoGYlt5T.s.YciLzju1j2yr1BITAs9wchTBndLOow2",
         "createdAt": "2021-08-31T14:48:24.920Z",
         "updatedAt": "2021-08-31T14:48:24.920Z"
+    }
+]
+```
+
+--- 
+
+Post `localhost:3000/tasks`
+> Create a task todo
+
+```json
+
+{
+    "description":"new task todo",
+    "ownerId": "6043b122-cc60-4f0e-8008-8fcd8089e687",
+    "isDone": false
+}
+
+```
+
+---
+
+Get `localhost:3000/tasks`
+> Get registered tasks
+
+```json
+[
+    {
+        "id": "6043b122-cc60-4f0e-8008-8fcd8089e687",
+        "description": "new task todo",
+        "isDone": false,
+        "ownerId": "a53989f0-3f55-4a66-997f-7fae4a57646b",
+        "createdAt": "2021-09-01T01:06:30.435Z",
+        "updatedAt": "2021-09-01T01:06:30.435Z"
     }
 ]
 ```

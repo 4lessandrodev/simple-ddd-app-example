@@ -10,7 +10,7 @@
     "prestart": "tsc",
     "start": "node ./dist/main.js",
     "build": "tsc",
-    "test": "jest",
+    "test": "jest --runInBand",
     "test:ci": "jest --runInBand --passWithNoTests",
     "dev": "ts-node src/main.ts",
     "prepare": "husky install",

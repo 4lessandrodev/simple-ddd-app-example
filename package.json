@@ -1,50 +1,52 @@
 {
-	"name": "basic-ddd-project",
-	"version": "1.0.0",
-	"description": "a basic starter ddd project",
-	"main": "dist/main.js",
-	"license": "MIT",
-	"author": "4lessandrodev",
-	"scripts": {
-		"predev":"tsc",
-		"prestart":"tsc",
-		"start": "node ./dist/main.js",
-		"build": "tsc",
-		"test": "jest --runInBand --passWithNoTest",
-		"test:ci": "jest --runInBand --passWithNoTests",
-		"dev": "ts-node src/main.ts",
-		"prepare": "husky install",
-		"postinstall": "husky install",
-		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
-	},
-	"devDependencies": {
-		"@types/node": "^16.7.1",
-		"@typescript-eslint/eslint-plugin": "^4.29.3",
-		"@typescript-eslint/parser": "^4.29.3",
-		"eslint": "^7.12.1",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-config-standard": "^16.0.3",
-		"eslint-config-standard-with-typescript": "^20.0.0",
-		"eslint-plugin-import": "^2.22.1",
-		"eslint-plugin-node": "^11.1.0",
-		"eslint-plugin-promise": "^4.2.1",
-		"git-commit-msg-linter": "^3.2.8",
-		"husky": "^7.0.2",
-		"jest": "^27.0.6",
-		"lint-staged": "^11.1.2",
-		"prettier": "^2.3.2",
-		"ts-node": "^10.2.1",
-		"typescript": "^4.3.5",
-		"@types/module-alias": "^2.0.1"
-	},
-	"dependencies": {
-		"fastify": "^3.20.2",
-		"module-alias": "^2.2.2",
-		"types-ddd": "^2.3.6"
-	},
-	"_moduleAliases": {
-		"@modules": "./dist/modules",
-		"@config": "./dist/config",
-		"@": "./dist"
-	}
+  "name": "basic-ddd-project",
+  "version": "1.0.0",
+  "description": "a basic starter ddd project",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "author": "4lessandrodev",
+  "scripts": {
+    "predev": "tsc",
+    "prestart": "tsc",
+    "start": "node ./dist/main.js",
+    "build": "tsc",
+    "test": "jest",
+    "test:ci": "jest --runInBand --passWithNoTests",
+    "dev": "ts-node src/main.ts",
+    "prepare": "husky install",
+    "postinstall": "husky install",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/module-alias": "^2.0.1",
+    "@types/node": "^16.7.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard-with-typescript": "^20.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "git-commit-msg-linter": "^3.2.8",
+    "husky": "^7.0.2",
+    "jest": "^27.1.0",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "fastify": "^3.20.2",
+    "module-alias": "^2.2.2",
+    "types-ddd": "^2.3.6"
+  },
+  "_moduleAliases": {
+    "@modules": "./dist/modules",
+    "@config": "./dist/config",
+    "@": "./dist"
+  }
 }

@@ -3,14 +3,14 @@ import TaskService from '@modules/task/task.service';
 import Database from '@modules/task/infra/database/memory.db';
 
 export class TaskModule {
-	private static userService: TaskService;
+	private static taskService: TaskService;
 
 	get service (): TaskService {
-		if(!TaskModule.userService) {
-			TaskModule.userService = new TaskService(new Database());
+		if(!TaskModule.taskService) {
+			TaskModule.taskService = new TaskService(new Database());
 			Logger.info('[Started]: TaskModule');
 		}
-		return TaskModule.userService;
+		return TaskModule.taskService;
 	}
 }
 

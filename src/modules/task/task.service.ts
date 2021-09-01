@@ -1,6 +1,5 @@
 import { Result, IMapper } from 'types-ddd';
 import TaskAggregate from '@modules/task/domain/aggregates/task.aggregate';
-import Database from '@modules/task/infra/database/memory.db';
 import TaskModel from '@modules/task/infra/models/task.model';
 import IUserRepository from '@modules/task/domain/repo/task-repo.interface';
 import TaskMapper from '@modules/task/infra/mappers/task.mapper';
@@ -17,7 +16,6 @@ export class UserService {
 	constructor (
 		private readonly database: IDatabase
 	){
-		this.database = new Database();
 		this.mapper = new TaskMapper();
 		this.repo = new UserRepository(this.database, this.mapper);
 		this.createTaskUserCase = new CreateTaskUseCase(this.repo);

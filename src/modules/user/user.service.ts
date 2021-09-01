@@ -1,6 +1,5 @@
 import { Result, IMapper } from 'types-ddd';
 import UserAggregate from '@modules/user/domain/aggregates/user.aggregate';
-import Database from '@modules/user/infra/database/memory.db';
 import UserModel from '@modules/user/infra/models/user.model';
 import IUserRepository from '@modules/user/domain/repo/user-repo.interface';
 import UserMapper from '@modules/user/infra/mappers/user.mapper';
@@ -17,7 +16,6 @@ export class UserService {
 	constructor (
 		private readonly database: IDatabase
 	){
-		this.database = new Database();
 		this.mapper = new UserMapper();
 		this.repo = new UserRepository(this.database, this.mapper);
 		this.signUpUseCase = new SignUpUseCase(this.repo);

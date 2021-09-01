@@ -40,4 +40,37 @@ describe('task.service', ()=>{
 		});
 		expect(result.isSuccess).toBeFalsy();
 	});
+
+	it('should fail if try done a no exists task', async ()=>{
+		const service = new TaskService(new Database());
+
+		const result = await service.doneTask({
+			taskId: 'invalid_task_id'
+		});
+
+		expect(result.isFailure).toBeTruthy();
+	});
+
+	it('should done a task with success', async ()=>{
+		const service = new TaskService(new Database());
+
+		await service.createTask({
+			description: 'valid_description',
+			isDone: false,
+			ownerId: 'valid_owner_id'
+		});
+
+		const savedTask = await service.getTasks();
+		expect(savedTask).toHaveLength(1);
+		
+		const task = savedTask[0];
+
+		expect(task.isDone).toBeFalsy();
+		await service.doneTask({ taskId: task.id });
+
+		const updatedTask = await service.getTasks();
+		expect(updatedTask).toHaveLength(1);
+
+		expect(updatedTask[0].isDone).toBeTruthy();
+	});
 });

@@ -10,11 +10,17 @@ few free to use any frameworks like NestJS or any other.
 
 ## Objectives
 
-- Show how to use `types-ddd` lib
+> Show how to use `types-ddd` lib
+
 - IUseCase: OK
 - AggregateRoot: OK
 - IMapper: OK
 - ValueObject: OK
+- DomainEvents: OK
+- IDomainEvent: OK
+- IHandle: OK
+- Hooks: OK
+- Tests: OK
 - Entity
 
 ---
@@ -78,6 +84,18 @@ Post `localhost:3000/tasks`
     "ownerId": "6043b122-cc60-4f0e-8008-8fcd8089e687",
     "isDone": false
 }
+
+```
+
+--- 
+
+Put `localhost:3000/tasks/:taskId`
+> Mark a task as done
+
+```json
+
+// Only param on url. PUT Method. 
+// This method calls a hook by domain event
 
 ```
 

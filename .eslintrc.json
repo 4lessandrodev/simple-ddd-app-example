@@ -35,6 +35,7 @@
 		"no-tabs": 0,
 		"indent": ["error", "tab"],
 		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
-		"linebreak-style": ["error", "unix"]
+		"linebreak-style": ["error", "unix"],
+		"quotes":["error", "single"]
 	}
 }

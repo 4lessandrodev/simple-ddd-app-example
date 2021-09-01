@@ -1,4 +1,4 @@
-import  { Filter, IMapper, Logger } from 'types-ddd';
+import  { DomainEvents, Filter, IMapper, Logger } from 'types-ddd';
 import ITaskRepository from '@modules/task/domain/repo/task-repo.interface';
 import TaskAggregate from '@modules/task/domain/aggregates/task.aggregate';
 import  TaskModel from '@modules/task/infra/models/task.model';
@@ -12,14 +12,30 @@ export class TaskRepository implements ITaskRepository<TaskAggregate, TaskModel>
 
 	async save (target: TaskAggregate): Promise<void>{
 		const model = this.mapper.toPersistence(target);
+
+		const taskAlreadyExists = await this.exists({ id: model.id });
+
+		if (taskAlreadyExists) {
+
+			this.database.tasks = this.database.tasks.filter((task) => task.id !== model.id);
+			this.database.tasks.push(model);
+
+			// Execute hooks on mark task as done
+			this.database.onSave(function (){
+				DomainEvents.dispatchEventsForAggregate(target.id.value);
+			});
+			return;
+		}
+
 		this.database.tasks.push(model);
 		Logger.info('[Task]: New task added');
+
 	};
 
 	async findOneTask (filter: Filter<Partial<TaskModel>>): Promise<TaskAggregate | null>{
 		const userFound = this.database.tasks.find(
-			(user) => user.id === filter?.id || 
-			user.description.toLowerCase() === filter?.description?.toLowerCase()
+			(task) => task.id === filter?.id || 
+			task.description.toLowerCase() === filter?.description?.toLowerCase()
 		);
 		if (!userFound) {
 			return null;

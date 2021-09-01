@@ -1,6 +1,7 @@
 import { Logger } from 'types-ddd';
 import TaskService from '@modules/task/task.service';
 import Database from '@modules/task/infra/database/memory.db';
+import AfterTaskDoneSubscriber from './domain/subscribers/after-task-done.sub';
 
 export class TaskModule {
 	private static taskService: TaskService;
@@ -9,6 +10,9 @@ export class TaskModule {
 		if(!TaskModule.taskService) {
 			TaskModule.taskService = new TaskService(new Database());
 			Logger.info('[Started]: TaskModule');
+
+			// Set subscriber
+			new AfterTaskDoneSubscriber();
 		}
 		return TaskModule.taskService;
 	}

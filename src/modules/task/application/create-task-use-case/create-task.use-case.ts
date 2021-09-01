@@ -37,7 +37,6 @@ export class CreateTaskUseCase implements IUseCase<CreateTaskDto, Result<void>>{
 			}
 
 			const task = taskOrError.getResult();
-
 			await this.taskRepo.save(task);
 
 			return Result.success();

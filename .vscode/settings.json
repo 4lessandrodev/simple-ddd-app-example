@@ -43,6 +43,8 @@
 		"strings": true
 	},
 
+	"typescript.preferences.quoteStyle": "single",
+
 	"editor.defaultFormatter": "dbaeumer.vscode-eslint",
 
 	"editor.acceptSuggestionOnCommitCharacter": true,

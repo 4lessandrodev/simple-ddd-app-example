@@ -1,5 +1,6 @@
 import { AggregateRoot, DomainId, BaseDomainEntity, Result } from 'types-ddd';
 import TaskDescriptionValueObject from '@modules/task/domain/value-object/task-description.value-object';
+import TaskDoneEvent from '@modules/task/domain/events/task-done.event';
 
 export interface TaskProps extends BaseDomainEntity {
 	ownerId: DomainId;
@@ -30,6 +31,7 @@ export class TaskAggregate extends AggregateRoot<TaskProps> {
 
 	markTaskAsDone (): void {
 		this.props.isDone = true;
+		this.addDomainEvent(new TaskDoneEvent(this));
 	}
 
 	markTaskAsNotDone (): void {

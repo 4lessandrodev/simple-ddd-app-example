@@ -1,8 +1,10 @@
 # A simple DDD-Application example
 
+> It was built to work with good performance.
+
 Example using `types-ddd` lib from [npm package](https://www.npmjs.com/package/types-ddd)
 
-This is a simple example how to use `types-ddd` lib
+This is a simple example of using `types-ddd` lib.
 
 few free to use any frameworks like NestJS or any other.
 

@@ -6,6 +6,17 @@ const { service } = new UserModule();
 export const signup: RouteOptions = {
 	method: 'POST',
 	url: '/users',
+	schema:{
+		body: {
+			type: 'object',
+			required: ['email', 'password', 'name'],
+			properties:{
+				email: { type:'string' },
+				password: { type:'string' },
+				name: { type:'string' }
+			}
+		}
+	},
 	handler: async (req: FastifyRequest, res: FastifyReply) => {
 		const result = await service.signup(req.body as SignUpDto);
 		res.send(result);

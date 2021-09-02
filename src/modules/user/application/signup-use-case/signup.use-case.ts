@@ -20,7 +20,7 @@ export class SignUpUseCase implements IUseCase<SignUpDto, Result<void>> {
 			const userAlreadyExists = await this.userRepo.exists({ email });
 			
 			if (userAlreadyExists) {
-				const message = 'User Already Exists for email';
+				const message = '[SignUpUseCase]: User Already Exists for email';
 				Logger.error(message);
 				return Result.fail(message, 'CONFLICT');
 			}

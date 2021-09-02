@@ -7,6 +7,17 @@ const { service } = new TaskModule();
 export const createTask: RouteOptions = {
 	method: 'POST',
 	url: '/tasks',
+	schema:{
+		body: {
+			type: 'object',
+			required: ['ownerId', 'description', 'isDone'],
+			properties:{
+				ownerId: { type:'string' },
+				description: { type:'string' },
+				isDone: { type: 'boolean' }
+			}
+		}
+	},
 	handler: async (req: FastifyRequest, res: FastifyReply) => {
 		const result = await service.createTask(req.body as CreateTaskDto);
 		res.send(result);

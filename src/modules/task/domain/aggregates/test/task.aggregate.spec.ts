@@ -1,6 +1,6 @@
 import TaskAggregate from '@modules/task/domain/aggregates/task.aggregate';
 import { DomainId } from 'types-ddd/dist';
-import TaskDescriptionValueObject from '@modules/task/domain/value-object/task-description.value-object';
+import TaskDescriptionValueObject from '@modules/task/domain/value-objects/task-description.value-object';
 
 describe('task.aggregate', ()=>{
 	it('should be defined', ()=>{

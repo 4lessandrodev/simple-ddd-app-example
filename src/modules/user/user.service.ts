@@ -1,4 +1,4 @@
-import { Result, IMapper } from 'types-ddd';
+import { Result, IMapper, Filter } from 'types-ddd';
 import UserAggregate from '@modules/user/domain/aggregates/user.aggregate';
 import UserModel from '@modules/user/infra/models/user.model';
 import IUserRepository from '@modules/user/domain/repo/user-repo.interface';
@@ -27,6 +27,18 @@ export class UserService {
 
 	async getUsers (): Promise<UserModel[]> {
 		return await this.repo.getUsers();
+	}
+
+	async getUserById (id: string): Promise<UserModel | null> {
+		return await this.repo.getUserById(id);
+	}
+
+	async userExists (id: string): Promise<boolean> {
+		return await this.repo.exists({ id });
+	}
+
+	async findOneUser (filter: Filter<Partial<UserModel>>): Promise<UserAggregate | null> {
+		return await this.repo.findOneUser(filter);
 	}
 }
 

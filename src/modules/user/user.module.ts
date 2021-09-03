@@ -12,6 +12,14 @@ export class UserModule {
 		}
 		return UserModule.userService;
 	}
+
+	// public service to external modules
+	public static publicUserService (): UserService {
+		if (!UserModule.userService) {
+			UserModule.userService = new UserService(new Database());
+		}
+		return UserModule.userService;
+	}
 }
 
 export default UserModule;

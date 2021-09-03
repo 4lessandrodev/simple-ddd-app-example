@@ -13,6 +13,7 @@ describe('signup.use-case', ()=>{
 			findOneUser: jest.fn(),
 			getUsers: jest.fn(),
 			save: jest.fn(),
+			getUserById: jest.fn()
 		};
 	});
 

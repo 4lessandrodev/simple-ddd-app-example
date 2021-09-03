@@ -1,5 +1,5 @@
 import { MarkTaskAsDoneUseCase } from '@modules/task/application/mark-task-as-done-use-case/mark-task-as-done.use-case';
-import TaskDescriptionValueObject from '@modules/task/domain/value-object/task-description.value-object';
+import TaskDescriptionValueObject from '@modules/task/domain/value-objects/task-description.value-object';
 import ITaskRepository from '@modules/task/domain/repo/task-repo.interface';
 import TaskAggregate from '@modules/task/domain/aggregates/task.aggregate';
 import TaskModel from '@modules/task/infra/models/task.model';

@@ -64,5 +64,9 @@
 	"editor.wordBasedSuggestions": true,
 
 	"editor.parameterHints.enabled": true,
-	"cSpell.words": ["fastify"]
+	"cSpell.words": [
+		"fastify",
+		"middie",
+		"signin"
+	]
 }

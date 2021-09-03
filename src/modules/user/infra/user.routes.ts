@@ -1,6 +1,8 @@
 import { FastifyReply, FastifyRequest, RouteOptions } from 'fastify';
 import SignUpDto from '@modules/user/application/signup-use-case/signup.dto';
 import UserModule from '@modules/user/user.module';
+import auth from '@modules/auth/infra/middlewares/auth.midleware';
+
 const { service } = new UserModule();
 
 export const signup: RouteOptions = {
@@ -26,6 +28,7 @@ export const signup: RouteOptions = {
 export const getUsers: RouteOptions = {
 	method: 'GET',
 	url: '/users',
+	preHandler: auth,
 	handler: async (_req: FastifyRequest, res: FastifyReply) => {
 		const result = await service.getUsers();
 		res.send(result);

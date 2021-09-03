@@ -2,7 +2,7 @@ import CreateTaskDto from '@modules/task/application/create-task-use-case/create
 import ITaskRepository from '@modules/task/domain/repo/task-repo.interface';
 import { DomainId, IUseCase, Result, Logger } from 'types-ddd';
 import TaskModel from '@modules/task/infra/models/task.model';
-import TaskDescriptionValueObject from '@modules/task/domain/value-object/task-description.value-object';
+import TaskDescriptionValueObject from '@modules/task/domain/value-objects/task-description.value-object';
 import TaskAggregate from '@modules/task/domain/aggregates/task.aggregate';
 
 export class CreateTaskUseCase implements IUseCase<CreateTaskDto, Result<void>>{

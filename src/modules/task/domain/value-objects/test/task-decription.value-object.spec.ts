@@ -1,4 +1,4 @@
-import TaskDescriptionValueObject from '@modules/task/domain/value-object/task-description.value-object';
+import TaskDescriptionValueObject from '@modules/task/domain/value-objects/task-description.value-object';
 describe('task-description.value-object', ()=>{
 
 	it('should be defined', ()=>{

@@ -1,5 +1,5 @@
 import { AggregateRoot, DomainId, BaseDomainEntity, Result } from 'types-ddd';
-import TaskDescriptionValueObject from '@modules/task/domain/value-object/task-description.value-object';
+import TaskDescriptionValueObject from '@modules/task/domain/value-objects/task-description.value-object';
 import TaskDoneEvent from '@modules/task/domain/events/task-done.event';
 
 export interface TaskProps extends BaseDomainEntity {

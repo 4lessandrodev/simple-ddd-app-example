@@ -5,6 +5,7 @@ export interface IUserRepository<Aggregate, Model>{
 	findOneUser: (filter: Filter<Partial<Model>>) => Promise<Aggregate | null>
 	exists: (filter: Filter<Partial<Model>>) => Promise<boolean>;
 	getUsers: () => Promise<Model[]>;
+	getUserById: (id: string) => Promise<Model | null>
 }
 
 export default IUserRepository;

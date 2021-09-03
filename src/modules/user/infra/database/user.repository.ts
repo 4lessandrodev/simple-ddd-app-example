@@ -37,6 +37,14 @@ export class UserRepository implements IUserRepository<UserAggregate, UserModel>
 	async getUsers (): Promise<UserModel[]> {
 		return this.database.users;
 	}
+
+	async getUserById (id: string): Promise<UserModel | null> {
+		const userFound = this.database.users.find((user) => user.id === id);
+		if (!userFound) {
+			return null;
+		}
+		return userFound;
+	}
 }
 
 export default UserRepository;

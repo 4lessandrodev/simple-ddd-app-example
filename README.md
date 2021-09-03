@@ -43,6 +43,10 @@ Database is running in memory.
 
 ---
 
+### Postman documentation
+
+[Postman Doc](https://documenter.getpostman.com/view/9702967/U16evoVq)
+
 Post `localhost:3000/users`
 > Create an user
 

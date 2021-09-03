@@ -17,6 +17,7 @@ export class UserModule {
 	public static publicUserService (): UserService {
 		if (!UserModule.userService) {
 			UserModule.userService = new UserService(new Database());
+			Logger.info('[Started]: UserModule');
 		}
 		return UserModule.userService;
 	}

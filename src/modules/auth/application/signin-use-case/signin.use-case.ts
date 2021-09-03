@@ -27,7 +27,7 @@ export class SingInUseCase implements IUseCase<SignInDto, Result<TokenProp>>{
 			const payloadOrError = PayloadValueObject.create(userExists.id.value);
 
 			if (payloadOrError.isFailure){
-				return Result.fail('[SingInUseCase]: Invalid Credentials', 'UNAUTHORIZED');
+				return Result.fail(payloadOrError.errorValue(), 'UNAUTHORIZED');
 			}
 
 			const payload = payloadOrError.getResult();

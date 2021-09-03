@@ -27,6 +27,7 @@ export const createTask: RouteOptions<any, any, any, any> = {
 		// @ts-ignore
 		const ownerId = req.userId;
 		const result = await service.createTask({ description, isDone, ownerId });
+		res.statusCode = result.statusCodeNumber;
 		res.send(result);
 	}
 };
@@ -47,6 +48,7 @@ export const doneTask: RouteOptions = {
 	preHandler: auth,
 	handler: async (req: FastifyRequest, res: FastifyReply) => {
 		const result = await service.doneTask(req.params as MarkTaskAsDoneDto);
+		res.statusCode = result.statusCodeNumber;
 		res.send(result);
 	}
 };

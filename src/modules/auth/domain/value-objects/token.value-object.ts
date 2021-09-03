@@ -36,7 +36,7 @@ export class TokenValueObject extends ValueObject<TokenProp>{
 			const decoded:any = Jwt.verify(this.props.token, JWT_SECRET);
 			return PayloadValueObject.create(decoded.userId);
 		} catch (error) {
-			return Result.fail('Invalid Token');
+			return Result.fail('[TokenValueObject]: Invalid or Expired Token');
 		}
 	}
 

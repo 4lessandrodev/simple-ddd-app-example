@@ -16,7 +16,7 @@ server.route(signup);
 server.route(signin);
 
 
-// // Private routes
+// Private routes
 server.route(me);
 server.route(getUsers);
 server.route(createTask);

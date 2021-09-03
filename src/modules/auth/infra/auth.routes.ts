@@ -23,6 +23,7 @@ export const signin: RouteOptions = {
 		if (result.isSuccess) {
 			return res.send({ token: result.getResult().token });
 		}
+		res.statusCode = result.statusCodeNumber;
 		res.send(result);
 	}
 };

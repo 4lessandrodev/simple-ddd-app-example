@@ -21,6 +21,7 @@ export const signup: RouteOptions = {
 	},
 	handler: async (req: FastifyRequest, res: FastifyReply) => {
 		const result = await service.signup(req.body as SignUpDto);
+		res.statusCode = result.statusCodeNumber;
 		res.send(result);
 	}
 };

@@ -16,7 +16,7 @@ export class AuthorizeUseCase implements IUseCase<AuthorizeDto, Result<PayloadPr
 			const payloadOrError = token.verify();
 
 			if(payloadOrError.isFailure) {
-				return Result.fail('Invalid token');
+				return Result.fail('[AuthorizeUseCase]: Invalid Token');
 			}
 
 			const payload = payloadOrError.getResult();
@@ -25,13 +25,13 @@ export class AuthorizeUseCase implements IUseCase<AuthorizeDto, Result<PayloadPr
 			const userExists = await this.userService.getUserById(userId);
 
 			if(!userExists) {
-				return Result.fail('Invalid token');
+				return Result.fail('[AuthorizeUseCase]: Invalid Token');
 			}
 
 			return Result.ok({ userId: payload.value });
 
 		} catch (error) {
-			return Result.fail('Invalid token');
+			return Result.fail('[AuthorizeUseCase]: Internal Server Error');
 		}
 	}
 }

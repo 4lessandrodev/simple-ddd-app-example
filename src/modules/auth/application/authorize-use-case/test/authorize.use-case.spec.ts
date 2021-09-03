@@ -1,6 +1,9 @@
 import { AuthorizeUseCase } from '@modules/auth/application/authorize-use-case/authorize.use-case';
 import UserService from '@modules/user/user.service';
 import UserModel from '@modules/user/infra/models/user.model';
+import TokenValueObject from '@modules/auth/domain/value-objects/token.value-object';
+import PayloadValueObject from '@modules/auth/domain/value-objects/payload.value-object';
+import { UniqueEntityID } from 'types-ddd';
 
 describe('authorize.use-case', ()=>{
 
@@ -41,10 +44,13 @@ describe('authorize.use-case', ()=>{
 
 		jest.spyOn(userService, 'getUserById').mockResolvedValueOnce(null);
 
+		const userId = new UniqueEntityID();
+		const payload = PayloadValueObject.create(userId).getResult();
+		const token = TokenValueObject.create().getResult().addPayload(payload);
+		token.sign();
+
 		const useCase = new AuthorizeUseCase(userService);
-		const result = await useCase.execute(
-			{ token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxOTZkNDNkMC02MDk1LTQyMTgtYjVlMy1iZjk2ZjQ5NmFhNjEiLCJpYXQiOjE2MzA2MjY5MDgsImV4cCI6MTYzMDYzNDEwOH0.deLTMQ39bX2HSKPTeDFFW7Tngc6Nv8qgjgR0yPeOW64'}
-		);
+		const result = await useCase.execute({ token: token.value });
 
 		expect(result.isFailure).toBeTruthy();
 	});
@@ -53,11 +59,14 @@ describe('authorize.use-case', ()=>{
 
 		jest.spyOn(userService, 'getUserById').mockResolvedValueOnce(user);
 		
+		const userId = new UniqueEntityID();
+		const payload = PayloadValueObject.create(userId).getResult();
+		const token = TokenValueObject.create().getResult().addPayload(payload);
+		token.sign();
+
 		const useCase = new AuthorizeUseCase(userService);
-		const result = await useCase.execute(
-			{ token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxOTZkNDNkMC02MDk1LTQyMTgtYjVlMy1iZjk2ZjQ5NmFhNjEiLCJpYXQiOjE2MzA2MjY5MDgsImV4cCI6MTYzMDYzNDEwOH0.deLTMQ39bX2HSKPTeDFFW7Tngc6Nv8qgjgR0yPeOW64'}
-		);
+		const result = await useCase.execute({ token: token.value });
 		expect(result.isSuccess).toBeTruthy();
-		expect(result.getResult().userId).toBe('196d43d0-6095-4218-b5e3-bf96f496aa61');
+		expect(result.getResult().userId).toBe(userId.toString());
 	});
 });

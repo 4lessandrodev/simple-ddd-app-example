@@ -22,7 +22,7 @@ export class PayloadValueObject extends ValueObject<PayloadProp>{
 		const isValidValue = PayloadValueObject.isValidUUID(value.toString());
 
 		if(!isValidValue) {
-			return Result.fail('Invalid uuid for user');
+			return Result.fail('Invalid uuid For User');
 		}
 
 		return Result.ok(new PayloadValueObject({ userId: value}));

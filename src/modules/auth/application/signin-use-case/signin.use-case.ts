@@ -15,19 +15,19 @@ export class SingInUseCase implements IUseCase<SignInDto, Result<TokenProp>>{
 			const userExists = await this.service.findOneUser({ email});
 
 			if (!userExists) {
-				return Result.fail('User not found', 'NOT_FOUND');
+				return Result.fail('[SingInUseCase]: User Not Found', 'NOT_FOUND');
 			}
 
 			const passwordMatch = userExists.password.compare(password);
 
 			if(!passwordMatch) {
-				return Result.fail('Invalid credentials', 'UNAUTHORIZED');
+				return Result.fail('[SingInUseCase]: Invalid Credentials', 'UNAUTHORIZED');
 			}
 
 			const payloadOrError = PayloadValueObject.create(userExists.id.value);
 
 			if (payloadOrError.isFailure){
-				return Result.fail('Invalid credentials', 'UNAUTHORIZED');
+				return Result.fail('[SingInUseCase]: Invalid Credentials', 'UNAUTHORIZED');
 			}
 
 			const payload = payloadOrError.getResult();
@@ -41,7 +41,7 @@ export class SingInUseCase implements IUseCase<SignInDto, Result<TokenProp>>{
 			return Result.ok<TokenProp, string>({ token: token.value });
 
 		} catch (error) {
-			return Result.fail('Internal server error', 'INTERNAL_SERVER_ERROR');
+			return Result.fail('[SingInUseCase]: Internal Server Error', 'INTERNAL_SERVER_ERROR');
 		}
 	}
 }

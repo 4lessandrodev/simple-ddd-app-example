@@ -13,6 +13,7 @@ export class TaskModule {
 
 			// Set subscriber
 			new AfterTaskDoneSubscriber();
+			Logger.info('[Started]: TaskSubscriber');
 		}
 		return TaskModule.taskService;
 	}

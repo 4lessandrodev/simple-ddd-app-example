@@ -1,9 +1,9 @@
 # A simple DDD-Application example
 
 
-## Simple application using `types-ddd` lib from [npm package](https://www.npmjs.com/package/types-ddd). Inspired in NestJS framework
+## Simple application using `types-ddd` lib from [npm package](https://www.npmjs.com/package/types-ddd).
 
-> In this project no framework was used, to keep a clean architecture, but feel free to use any framework.
+> Inspired in NestJS framework, but In this project no framework was used, to keep a clean architecture, but feel free to use any framework.
 
 > Built to work with good performance.
 ---
@@ -27,14 +27,14 @@
 
 ## How to run this app
 
-Database is running in memory.
+> Database is running in memory.
 
 - Clone this repo
 - `$ git clone https://github.com/4lessandrodev/simple-ddd-app-example.git`
 - Install dependencies
-- `$ yarn install` or `npm install`
+- `$ yarn install` or `$ npm install`
 - Run application
-- `$ yarn dev` or `npm run dev`
+- `$ yarn dev` or `$ npm run dev`
 
 
 ## Available end-points
@@ -43,9 +43,9 @@ Database is running in memory.
 
 ### Postman documentation
 
-[Postman Doc](https://documenter.getpostman.com/view/9702967/U16evoVq)
+[Click to Postman Doc](https://documenter.getpostman.com/view/9702967/U16evoVq)
 
-### Post `localhost:3000/users`
+### POST `localhost:3000/users`
 > Create an user
 
 `Body`
@@ -62,7 +62,7 @@ Database is running in memory.
 
 ---
 
-### Post `localhost:3000/auth`
+### POST `localhost:3000/auth`
 > Authenticate
 
 `Body`
@@ -76,9 +76,17 @@ Database is running in memory.
 
 ```
 
+`Response Body`
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.WQiOiI4ODAyYjhjOS1iMDljLTQ2M2MtYTI0OC1jODY5MTU0NmI5MW"
+}
+```
+
 ---
 
-### Get `localhost:3000/auth`
+### GET `localhost:3000/auth`
 > Get authenticated user
 
 `Headers`
@@ -106,7 +114,7 @@ Database is running in memory.
 
 ---
 
-### Get `localhost:3000/users`
+### GET `localhost:3000/users`
 > Get registered users
 
 `Headers`
@@ -134,7 +142,7 @@ Database is running in memory.
 
 ---
 
-### Post `localhost:3000/tasks`
+### POST `localhost:3000/tasks`
 > Create a task todo
 
 `Headers`
@@ -158,7 +166,7 @@ Database is running in memory.
 
 --- 
 
-### Put `localhost:3000/tasks/:taskId`
+### PUT `localhost:3000/tasks/:taskId`
 
 > Mark a task as done
 
@@ -174,7 +182,7 @@ Database is running in memory.
 
 ---
 
-### Get `localhost:3000/tasks`
+### GET `localhost:3000/tasks`
 > Get registered tasks
 
 `Headers`

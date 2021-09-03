@@ -58,8 +58,40 @@ Post `localhost:3000/users`
 
 ---
 
+Post `localhost:3000/auth`
+> Authenticate
+
+```json
+
+{
+    "email":"valid_email@domain.com",
+    "password":"test123"
+}
+
+```
+
+---
+
+Get `localhost:3000/auth`
+> Get authenticated user
+
+`Headers`
+
+```json
+
+{
+    "authorization":"Bearer <token>"
+}
+
+```
+
+---
+
 Get `localhost:3000/users`
 > Get registered users
+
+`Headers`
+> `{ "authorization":"Bearer <token>" }`
 
 ```json
 [
@@ -74,16 +106,18 @@ Get `localhost:3000/users`
 ]
 ```
 
---- 
+---
 
 Post `localhost:3000/tasks`
 > Create a task todo
+
+`Headers`
+> `{ "authorization":"Bearer <token>" }`
 
 ```json
 
 {
     "description":"new task todo",
-    "ownerId": "6043b122-cc60-4f0e-8008-8fcd8089e687",
     "isDone": false
 }
 
@@ -93,6 +127,9 @@ Post `localhost:3000/tasks`
 
 Put `localhost:3000/tasks/:taskId`
 > Mark a task as done
+
+`Headers`
+> `{ "authorization":"Bearer <token>" }`
 
 ```json
 
@@ -105,6 +142,9 @@ Put `localhost:3000/tasks/:taskId`
 
 Get `localhost:3000/tasks`
 > Get registered tasks
+
+`Headers`
+> `{ "authorization":"Bearer <token>" }`
 
 ```json
 [

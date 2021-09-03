@@ -1,18 +1,16 @@
 # A simple DDD-Application example
 
-> It was built to work with good performance.
 
-Example using `types-ddd` lib from [npm package](https://www.npmjs.com/package/types-ddd)
+## Simple application using `types-ddd` lib from [npm package](https://www.npmjs.com/package/types-ddd). Inspired in NestJS framework
 
-This is a simple example of using `types-ddd` lib.
+> In this project no framework was used, to keep a clean architecture, but feel free to use any framework.
 
-few free to use any frameworks like NestJS or any other.
-
+> Built to work with good performance.
 ---
 
 ## Objectives
 
-> Show how to use `types-ddd` lib
+> Show how to use [`types-ddd`](https://www.npmjs.com/package/types-ddd) lib
 
 - IUseCase: OK
 - AggregateRoot: OK
@@ -34,9 +32,9 @@ Database is running in memory.
 - Clone this repo
 - `$ git clone https://github.com/4lessandrodev/simple-ddd-app-example.git`
 - Install dependencies
-- `$ yarn install`
+- `$ yarn install` or `npm install`
 - Run application
-- `$ yarn dev`
+- `$ yarn dev` or `npm run dev`
 
 
 ## Available end-points
@@ -47,8 +45,10 @@ Database is running in memory.
 
 [Postman Doc](https://documenter.getpostman.com/view/9702967/U16evoVq)
 
-Post `localhost:3000/users`
+### Post `localhost:3000/users`
 > Create an user
+
+`Body`
 
 ```json
 
@@ -62,8 +62,10 @@ Post `localhost:3000/users`
 
 ---
 
-Post `localhost:3000/auth`
+### Post `localhost:3000/auth`
 > Authenticate
+
+`Body`
 
 ```json
 
@@ -76,7 +78,7 @@ Post `localhost:3000/auth`
 
 ---
 
-Get `localhost:3000/auth`
+### Get `localhost:3000/auth`
 > Get authenticated user
 
 `Headers`
@@ -89,13 +91,33 @@ Get `localhost:3000/auth`
 
 ```
 
+`Response Body`
+
+```json
+{
+    "id": "6043b122-cc60-4f0e-8008-8fcd8089e687",
+    "name": "John Stuart",
+    "email": "valid_email@domain.com",
+    "password": "$2b$10$9rZh7nnnW.WcoGYlt5T.s.YciLzju1j2yr1BITAs9wchTBndLOow2",
+    "createdAt": "2021-08-31T14:48:24.920Z",
+    "updatedAt": "2021-08-31T14:48:24.920Z"
+}
+```
+
 ---
 
-Get `localhost:3000/users`
+### Get `localhost:3000/users`
 > Get registered users
 
 `Headers`
-> `{ "authorization":"Bearer <token>" }`
+
+```json
+{ 
+    "authorization":"Bearer <token>" 
+}
+```
+
+`Response Body`
 
 ```json
 [
@@ -112,11 +134,18 @@ Get `localhost:3000/users`
 
 ---
 
-Post `localhost:3000/tasks`
+### Post `localhost:3000/tasks`
 > Create a task todo
 
 `Headers`
-> `{ "authorization":"Bearer <token>" }`
+
+```json
+{ 
+    "authorization":"Bearer <token>" 
+}
+```
+
+`Body`
 
 ```json
 
@@ -129,26 +158,34 @@ Post `localhost:3000/tasks`
 
 --- 
 
-Put `localhost:3000/tasks/:taskId`
+### Put `localhost:3000/tasks/:taskId`
+
 > Mark a task as done
 
 `Headers`
-> `{ "authorization":"Bearer <token>" }`
 
 ```json
-
-// Only param on url. PUT Method. 
-// This method calls a hook by domain event
-
+{ 
+    "authorization":"Bearer <token>" 
+}
 ```
+
+> Only param on url. PUT Method. This method calls a hook by domain event
 
 ---
 
-Get `localhost:3000/tasks`
+### Get `localhost:3000/tasks`
 > Get registered tasks
 
 `Headers`
-> `{ "authorization":"Bearer <token>" }`
+
+```json
+{ 
+    "authorization":"Bearer <token>" 
+}
+```
+
+`Response Body`
 
 ```json
 [

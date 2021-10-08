@@ -45,7 +45,7 @@
     "jsonwebtoken": "^8.5.1",
     "middie": "^5.3.0",
     "module-alias": "^2.2.2",
-    "types-ddd": "^2.7.0"
+    "types-ddd": "^2.7.1"
   },
   "_moduleAliases": {
     "@modules": "./dist/modules",

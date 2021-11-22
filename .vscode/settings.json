@@ -1,5 +1,4 @@
 {
-	"workbench.iconTheme": "vscode-icons",
 	"editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
 	"editor.fontLigatures": true,
 	"editor.renderWhitespace": "all",
@@ -21,7 +20,11 @@
 		"**/.git/subtree-cache/**": true,
 		"**/.hg/store/**": true
 	},
-	"eslint.validate": ["javascriptreact", "typescript", "typescriptreact"],
+	"eslint.validate": [
+		"javascriptreact",
+		"typescript",
+		"typescriptreact"
+	],
 	"explorer.compactFolders": false,
 	"cSpell.userWords": [
 		"Roboto",
@@ -42,27 +45,16 @@
 		"comments": true,
 		"strings": true
 	},
-
 	"typescript.preferences.quoteStyle": "single",
-
 	"editor.defaultFormatter": "dbaeumer.vscode-eslint",
-
 	"editor.acceptSuggestionOnCommitCharacter": true,
-
 	"editor.acceptSuggestionOnEnter": "on",
-
 	"editor.quickSuggestionsDelay": 100,
-
 	"editor.suggestOnTriggerCharacters": true,
-
 	"editor.tabCompletion": "on",
-
 	"editor.suggest.localityBonus": true,
-
 	"editor.suggestSelection": "recentlyUsed",
-
 	"editor.wordBasedSuggestions": true,
-
 	"editor.parameterHints.enabled": true,
 	"cSpell.words": [
 		"fastify",

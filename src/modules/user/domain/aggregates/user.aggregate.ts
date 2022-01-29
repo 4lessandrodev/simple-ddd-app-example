@@ -1,11 +1,6 @@
-import {
-	AggregateRoot,
-	BaseDomainEntity,
-	EmailValueObject,
-	PasswordValueObject,
-	Result,
-	UserNameValueObject
-} from 'types-ddd';
+import { AggregateRoot, BaseDomainEntity, Result } from 'types-ddd/dist/core';
+import { EmailValueObject, PasswordValueObject, UserNameValueObject } from 'types-ddd/dist/utils';
+
 
 export interface UserProps extends BaseDomainEntity {
 	email: EmailValueObject;

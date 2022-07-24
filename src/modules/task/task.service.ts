@@ -10,22 +10,22 @@ import CreateTaskDto from '@modules/task/application/create-task-use-case/create
 import { MarkTaskAsDoneUseCase } from '@modules/task/application/mark-task-as-done-use-case/mark-task-as-done.use-case';
 import MarkTaskAsDoneDto from '@modules/task/application/mark-task-as-done-use-case/mark-task-as-done.dto';
 
-export class UserService {
+export class TaskService {
 	private readonly mapper: IMapper<TaskAggregate, TaskModel>;
 	private readonly repo: ITaskRepository<TaskAggregate, TaskModel>;
 	private readonly createTaskUserCase: CreateTaskUseCase;
 	private readonly markTaskAsDoneUserCase: MarkTaskAsDoneUseCase;
-	
+
 	constructor (
 		private readonly database: IDatabase
-	){
+	) {
 		this.mapper = new TaskMapper();
 		this.repo = new TaskRepository(this.database, this.mapper);
 		this.createTaskUserCase = new CreateTaskUseCase(this.repo);
 		this.markTaskAsDoneUserCase = new MarkTaskAsDoneUseCase(this.repo);
 	}
 
-	async createTask (dto:CreateTaskDto): Promise<Result<void>>{
+	async createTask (dto: CreateTaskDto): Promise<Result<void>> {
 		return await this.createTaskUserCase.execute(dto);
 	}
 
@@ -33,9 +33,9 @@ export class UserService {
 		return await this.repo.getTasks();
 	}
 
-	async doneTask (dto:MarkTaskAsDoneDto): Promise<Result<void>> {
+	async doneTask (dto: MarkTaskAsDoneDto): Promise<Result<void>> {
 		return await this.markTaskAsDoneUserCase.execute(dto);
 	}
 }
 
-export default UserService;
+export default TaskService;

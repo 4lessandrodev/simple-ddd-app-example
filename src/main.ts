@@ -1,6 +1,6 @@
 import fastify from 'fastify';
 import 'module-alias/register';
-import { Logger  } from 'types-ddd';
+import { Logger } from 'types-ddd';
 import middie from 'middie';
 
 
@@ -14,7 +14,6 @@ server.register(middie);
 // Public routes
 server.route(signup);
 server.route(signin);
-
 
 // Private routes
 server.route(me);
